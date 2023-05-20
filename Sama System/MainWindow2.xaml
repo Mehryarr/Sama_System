@@ -1,0 +1,222 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sama_System"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors" x:Class="Sama_System.MainWindow2"
+        mc:Ignorable="d"
+        Title="MainWindow2" Height="600" Width="1000" FlowDirection="RightToLeft" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Storyboard x:Key="Openmenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="main">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="280"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="main">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="60"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="menu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="280"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="menu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Closemenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="main">
+                <EasingDoubleKeyFrame KeyTime="0" Value="280"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="main">
+                <EasingDoubleKeyFrame KeyTime="0" Value="60"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="menu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="280"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="menu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+
+
+
+    <Grid Background="#FF3080BF">
+
+        <Grid x:Name="menu" Width="280" HorizontalAlignment="Left" Background="#FF3080BF" Height="600" VerticalAlignment="Top" UseLayoutRounding="False"  Margin="-280,0,0,0">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="119*"/>
+                <RowDefinition Height="330*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="110" HorizontalAlignment="Center" Margin="19,0" Width="242" Grid.Row="0">
+                <Button Width="40" Height="40" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Margin="15,35 ,15 ,35" >
+                    <Image Source="Materials/settings.png"/>
+                </Button>
+                <Button Width="70" Height="70" Padding="0" BorderBrush="{x:Null}" Margin="15" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="Materials/picture.png"/>
+                    </Button.Background>
+                </Button>
+                <Button Width="40" Height="40" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_Click" Margin="15,35,15,35" >
+                    <Image Source="Materials/info.png"/>
+                </Button>
+            </StackPanel>
+            <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1">
+                <StackPanel x:Name="stckmenu" Margin="10" >
+                    <Button x:Name="home" VerticalAlignment="Top" Height="50"  Background="#FF3080BF" ToolTip="خانه" Click="home_Click">
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="Click">
+                                <b:ControlStoryboardAction Storyboard="{StaticResource Closemenu}"/>
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                        <Image  Source="materials/home.png"  HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="-150 0 0 0"/>
+                    </Button>
+                    <Button x:Name="show" VerticalAlignment="Top" Height="50"  Background="#FF3080BF" ToolTip="نمایش" Click="show_Click" >
+                        <Image  Source="materials/show.png"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="36" Width="36"  Margin="-150 0 0 0"/>
+                    </Button>
+                    <StackPanel x:Name="submenu0" VerticalAlignment="Top" Height="200" Background="#FF5099D3">
+                        <Button x:Name="user0" VerticalAlignment="Top" Height="50"  Background="#FF5099D3"  Click="user0_Click">
+                            <TextBlock Text="کاربر" FontSize="20" Foreground="White"/>
+                        </Button>
+                        <Button x:Name="student0" VerticalAlignment="Top" Height="50"  Background="#FF5099D3" Click="student0_Click" >
+                            <TextBlock Text="دانشجو" FontSize="20" Foreground="White"/>
+                        </Button>
+                        <Button x:Name="course0" VerticalAlignment="Top" Height="50"  Background="#FF5099D3" Click="course0_Click" >
+                            <TextBlock Text="درس" FontSize="20" Foreground="White"/>
+                        </Button>
+                        <Button x:Name="teacher0" VerticalAlignment="Top" Height="50"  Background="#FF5099D3" Click="teacher0_Click">
+                            <TextBlock Text="استاد" FontSize="20" Foreground="White"/>
+                        </Button>
+                    </StackPanel>
+                    <Button x:Name="new" VerticalAlignment="Top" Height="50"  Background="#FF3080BF" ToolTip="جدید" Click="new_Click" >
+                        <Image  Source="materials/more.png"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="36" Width="36"  Margin="-150 0 0 0"/>
+                    </Button>
+                    <StackPanel x:Name="submenu1" VerticalAlignment="Top" Height="200" Background="#FF5099D3">
+                        <Button x:Name="user" VerticalAlignment="Top" Height="50"  Background="#FF5099D3"  Click="user_Click">
+                            <TextBlock Text="کاربر" FontSize="20" Foreground="White"/>
+                        </Button>
+                        <Button x:Name="student" VerticalAlignment="Top" Height="50"  Background="#FF5099D3" Click="student_Click" >
+                            <TextBlock Text="دانشجو" FontSize="20" Foreground="White"/>
+                        </Button>
+                        <Button x:Name="course" VerticalAlignment="Top" Height="50"  Background="#FF5099D3" Click="course_Click" >
+                            <TextBlock Text="درس" FontSize="20" Foreground="White"/>
+                        </Button>
+                        <Button x:Name="teacher" VerticalAlignment="Top" Height="50"  Background="#FF5099D3" Click="teacher_Click">
+                            <TextBlock Text="استاد" FontSize="20" Foreground="White"/>
+                        </Button>
+                    </StackPanel>
+                    <Button x:Name="edit" VerticalAlignment="Top" Height="50"  Background="#FF3080BF" ToolTip="ویرایش" Click="edit_Click" >
+                        <Image  Source="materials/edit.png"  HorizontalAlignment="Center" VerticalAlignment="Stretch"  Height="36" Width="36" Margin="-150 0 0 0"/>
+                    </Button>
+                    <StackPanel x:Name="submenu2" VerticalAlignment="Top" Height="200" Background="#FF5099D3" >
+                        <Button x:Name="user2" VerticalAlignment="Top" Height="50"  Background="#FF5099D3" Click="user2_Click">
+                            <TextBlock Text="کاربر" FontSize="20" Foreground="White"/>
+                        </Button>
+                        <Button x:Name="student2" VerticalAlignment="Top" Height="50"  Background="#FF5099D3" Click="student2_Click">
+                            <TextBlock Text="دانشجو" FontSize="20" Foreground="White"/>
+                        </Button>
+                        <Button x:Name="course2" VerticalAlignment="Top" Height="50"  Background="#FF5099D3" Click="course2_Click" >
+                            <TextBlock Text="درس" FontSize="20" Foreground="White"/>
+                        </Button>
+                        <Button x:Name="teacher2" VerticalAlignment="Top" Height="50"  Background="#FF5099D3" Click="teacher2_Click">
+                            <TextBlock Text="استاد" FontSize="20" Foreground="White"/>
+                        </Button>
+                    </StackPanel>
+                    <Button x:Name="search" VerticalAlignment="Top" Height="50"  Background="#FF3080BF" ToolTip="جستجو" Click="search_Click" >
+                        <Image  Source="materials/search.png"  HorizontalAlignment="Center" VerticalAlignment="Stretch"  Height="36" Width="36" Margin="-150 0 0 0"/>
+                    </Button>
+                    <StackPanel x:Name="submenu3" VerticalAlignment="Top" Height="200" Background="#FF5099D3">
+                        <Button x:Name="student3" VerticalAlignment="Top" Height="50"  Background="#FF5099D3" Click="student3_Click" >
+                            <TextBlock Text="دانشجو" FontSize="20" Foreground="White"/>
+                        </Button>
+                        <Button x:Name="course3" VerticalAlignment="Top" Height="50"  Background="#FF5099D3" Click="course3_Click" >
+                            <TextBlock Text="درس" FontSize="20" Foreground="White"/>
+                        </Button>
+                        <Button x:Name="teacher3" VerticalAlignment="Top" Height="50"  Background="#FF5099D3" Click="teacher3_Click">
+                            <TextBlock Text="استاد" FontSize="20" Foreground="White"/>
+                        </Button>
+                    </StackPanel>
+                    <Button x:Name="backup" VerticalAlignment="Top" Height="50"  Background="#FF3080BF" ToolTip="پشتیبان گیری" Click="backup_Click" >
+                        <Image  Source="materials/backup.png"  HorizontalAlignment="Center" VerticalAlignment="Stretch"  Height="36" Width="36" Margin="-150 0 0 0"/>
+                    </Button>
+                    <Button x:Name="restore" VerticalAlignment="Top" Height="50"  Background="#FF3080BF" ToolTip="بازیابی پشتیبان" Click="restore_Click" >
+                        <Image  Source="materials/restore.png"  HorizontalAlignment="Center" VerticalAlignment="Stretch"  Height="36" Width="36" Margin="-150 0 0 0"/>
+                    </Button>
+                    <Button x:Name="exit" VerticalAlignment="Top" Height="50"  Background="#FF3080BF" ToolTip="خروج"  Click="exit_Click">
+                        <Image  Source="materials/logout.png"  HorizontalAlignment="Center" VerticalAlignment="Stretch"  Height="36" Width="36" Margin="-150 0 0 0"/>
+                    </Button>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+        <Grid x:Name="main" Background="White" Margin="0,0,0,0">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Grid Width="782" Height="570" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                <Image x:Name="pic1" Source="materials/1.jpg" Stretch="Fill" />
+            </Grid>
+            <Button x:Name="openmenu" Height="25" Width="25" VerticalAlignment="Top" HorizontalAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Click="openmenu_Click" >
+                <b:Interaction.Triggers>
+                    <b:EventTrigger EventName="Click">
+                        <b:ControlStoryboardAction Storyboard="{StaticResource Openmenu}"/>
+                    </b:EventTrigger>
+                </b:Interaction.Triggers>
+                <Image Source="materials/menu.png">
+
+                </Image>
+            </Button>
+            <Button x:Name="closemenu" Height="25" Width="25" VerticalAlignment="Top" HorizontalAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Click="closemenu_Click" Visibility="Collapsed" >
+                <b:Interaction.Triggers>
+                    <b:EventTrigger EventName="Click">
+                        <b:ControlStoryboardAction Storyboard="{StaticResource Closemenu}"/>
+                    </b:EventTrigger>
+                </b:Interaction.Triggers>
+                <Image Source="materials/menu.png">
+                </Image>
+            </Button>
+            <Grid x:Name="account"  Width="218" HorizontalAlignment="Right" Background="#FF3080BF">
+                <TextBlock FontSize="20" Foreground="#FF3080BF" Text="به سامانه سما خوش آمدید" Margin="-460,0,458,573"/>
+                <Image Height="150" VerticalAlignment="Top" Source="Materials/wallpaper.jpg" Stretch="UniformToFill"/>
+                <Button x:Name="btnclose" Width="30" Height="30" Padding="0" Margin="15" HorizontalAlignment="Right" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Click="btnclose_Click">
+                    <Image Source="Materials/power.png">
+                        <Image.OpacityMask>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="White" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Image.OpacityMask>
+                    </Image>
+                </Button>
+                <Ellipse Height="100" Width="100" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,100,15,0" Stroke="White">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="materials/picture.png"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock x:Name="acname" Foreground="Black" FontSize="22" Margin="23,120,38,382"/>
+                <TextBlock Width="100" Margin="10,223,108,339" Text="سطح دسترسی:" Foreground="White" FontSize="16"></TextBlock>
+                <TextBlock x:Name="level" Width="100" Margin="118,223,0,339" Foreground="White" FontSize="16"></TextBlock>
+            </Grid>
+            <StackPanel x:Name="Aform" HorizontalAlignment="Left" Height="550" Margin="10 40 0 0" VerticalAlignment="Top" Width="730"></StackPanel>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,34 @@
+﻿<Window x:Class="Sama_System.editstudent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sama_System"
+        mc:Ignorable="d"
+      Title="" Height="500" Width="800" FlowDirection="RightToLeft" Loaded="Window_Loaded"  WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid Height="400" Width="400"  Background="#FF3080BF" Margin="0,0,393.6,70.4">
+            <TextBox x:Name="textbox1" HorizontalAlignment="Left" Height="30" Margin="151,45,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="220"/>
+            <TextBox x:Name="textbox2" HorizontalAlignment="Left" Height="30" Margin="151,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
+            <Label Content="شماره دانشجو:" HorizontalAlignment="Left" Margin="20,43,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White"/>
+            <Label Content="نام:" HorizontalAlignment="Left" Margin="20,120,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" RenderTransformOrigin="0.513,0.289"/>
+            <Label Content="نام خانوادگی:" HorizontalAlignment="Left" Margin="20,193,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" RenderTransformOrigin="0.311,4.914"/>
+            <TextBox x:Name="textbox3" HorizontalAlignment="Left" Height="30" Margin="151,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
+            <TextBox x:Name="textbox4" HorizontalAlignment="Left" Height="30" Margin="151,269,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
+            <Label Content="رشته تحصیلی:" HorizontalAlignment="Left" Margin="20,267,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" RenderTransformOrigin="0.311,4.914"/>
+        </Grid>
+        <StackPanel Height="400" Width="400" HorizontalAlignment="Right" VerticalAlignment="Top" Background="#FF54B3FF">
+            <DataGrid x:Name="datagridview2" FontSize="14" Width="390" Height="390" Margin="5"></DataGrid>
+        </StackPanel>
+        <StackPanel Height="70" VerticalAlignment="Bottom" Orientation="Horizontal" Margin="0,0,0,0">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF1A1A1A" Offset="0.894"/>
+                    <GradientStop Color="#FF7F7F7F"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Button x:Name="delete" Content="حذف" Height="50" Margin="10,10,10,10.4" Background="White" Foreground="Blue" FontSize="24" Click="delete_Click" Cursor="Hand" Width="380" />
+            <Button x:Name="edit" Content="ویرایش" Height="50" Margin="10,10,10,10.4" Background="White" Foreground="Blue" FontSize="24" Click="edit_Click" Cursor="Hand" Width="380" />
+        </StackPanel>
+    </Grid>
+</Window>
